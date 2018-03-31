@@ -57,13 +57,15 @@ def add_pet_to_stock(pet_shop, new_pet)
 end
 
 def customer_pet_count(customers)
-  total_pets = 0
-  for pet in customers[:pets]
-    total_pets += customers[:pets]
-  end
-  return total_pets
+ return customers[:pets].count
 end
 
 def add_pet_to_customer(customer, new_pet)
+ customer[:pets].push(new_pet)
+end
 
+def customer_can_afford_pet(customer, new_pet)
+    if customer[:cash] < new_pet[:price]
+      return false
+    end
 end
