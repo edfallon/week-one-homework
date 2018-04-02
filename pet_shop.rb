@@ -73,24 +73,11 @@ def customer_can_afford_pet(customer, new_pet)
 end
 
 def sell_pet_to_customer(pet_shop, pet, customer)
+  if pet != nil
   if customer_can_afford_pet(customer, pet)
    increase_pets_sold(pet_shop, 1)
    add_or_remove_cash(pet_shop, pet[:price])
    add_pet_to_customer(customer, pet)
   end
+  end
 end
-
-#   if customer_can_afford_pet = true
-#     return add_pet_to_customer(customer, new_pet)
-#   end
-#   if
-#     add_pet_to_customer = 1
-#     return pet_shop[:admin][:pet_sold] += 1
-#     pet_shop[:admin][:total_cash] += pet[:price]
-#   end
-#
-# end
-# # If the customer can afford the pet
-# Increase the number of pets sold by the shop by 1
-# Increase the amount of money the shop has by the value of the pet
-# Give the pet to the customer
